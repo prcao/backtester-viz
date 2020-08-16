@@ -13,7 +13,7 @@ function App() {
       <CSSReset />
       <Box height="100vh">
         <Header />
-        <Grid templateColumns={"75fr 25fr"} spacing={10}>
+        <Grid templateColumns={"70fr 30fr"} spacing={10}>
 
           <Dashboard data={data} />
           <MarketEventHistory history={eventHistory} data={data} />

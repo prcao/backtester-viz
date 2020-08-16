@@ -6,12 +6,13 @@ import {
     AccordionPanel,
     Box,
     Heading,
-    Divider
+    Divider,
+    Grid
 } from "@chakra-ui/core";
 import React from "react";
 import { groupBy, keyToIndexes } from "../../util/Util";
 import MarketEventHistoryCard from "./MarketEventHistoryCard";
-import MarketEventHistoryPositionsCard from "./MarketEventHistoryPositionsCard";
+import MarketEventHistorySummaryCard from "./MarketEventHistorySummaryCard";
 
 const dataToAccordionItem = (date, data, dateToIndexMap, history) => {
 
@@ -43,20 +44,23 @@ function MarketEventHistoryDayPanel(props) {
     );
 
     return (
-        <Box>
-            <MarketEventHistoryPositionsCard title="Positions at Open"
-                data={prevData} />
-            <Box borderWidth="2px" rounded="8px">
+        <Grid templateColumns="50fr 50fr">
+            <Box>
+                <MarketEventHistorySummaryCard title="Open"
+                    data={prevData} />
+                <MarketEventHistorySummaryCard title="EOD"
+                    data={currData} />
+            </Box>
+
+            <Box borderWidth="2px" p="12px" rounded="8px" marginY="8px">
                 <Box p={4} paddingBottom={0}>
                     <Heading size="md">Events</Heading>
                     <Divider />
                 </Box>
-
                 {cards}
             </Box>
-            <MarketEventHistoryPositionsCard title="Positions at EOD"
-                data={currData} />
-        </Box>
+
+        </Grid>
     );
 }
 

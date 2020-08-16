@@ -6,15 +6,16 @@ import {
     SimpleGrid,
 } from "@chakra-ui/core";
 import React from "react";
+import MarketOrder from "./MarketOrder";
 
-function MarketEventHistoryPositionsCard(props) {
+function MarketEventHistorySummaryCard(props) {
 
     let { title, data } = props;
 
     if (!data) {
         return <Box borderWidth="2px" p="12px" rounded="8px" marginY="8px">
             <Flex justifyContent="flex-start" alignContent="center">
-                <Heading size="md">{title}</Heading>
+                <Heading size="md">Summary at {title}</Heading>
             </Flex>
             <Divider />
             <Flex justifyContent="center" alignContent="center">
@@ -30,27 +31,41 @@ function MarketEventHistoryPositionsCard(props) {
         </React.Fragment>
     );
 
+    let orders = data.outstandingOrders.map(order => <MarketOrder order={order} />);
+
     return (
         <Box borderWidth="2px" p="12px" rounded="8px" marginY="8px">
-            <Flex justifyContent="flex-start" alignContent="center">
-                <Heading size="md">{title}</Heading>
-            </Flex>
+            <Box>
+                <Heading size="md">Positions at {title}</Heading>
+            </Box>
             <Divider />
             <SimpleGrid columns={2}>
                 {positions}
                 <Box>Cash</Box>
                 <Box>${data.cash}</Box>
             </SimpleGrid>
-
             <br />
 
-            <Flex justifyContent="flex-start" alignContent="center">
+            {data.outstandingOrders.length > 0 &&
+                <Box>
+                    <Box>
+                        <Heading size="md">Outstanding Orders at {title}</Heading>
+                    </Box>
+                    <Divider />
+                    {orders}
+                    <br />
+                </Box>
+            }
+
+
+
+            <Box>
                 <Heading size="md">Total Value</Heading>
-            </Flex>
+            </Box>
             <Divider />
             <Box>${data.value}</Box>
         </Box>
     );
 }
 
-export default MarketEventHistoryPositionsCard;
+export default MarketEventHistorySummaryCard;
