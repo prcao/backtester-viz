@@ -11,10 +11,9 @@ function App() {
   return (
     <ThemeProvider>
       <CSSReset />
-      <Box height="100vh">
+      <Box height="100vh" overflow="hidden">
         <Header />
         <Grid templateColumns={"70fr 30fr"} spacing={10}>
-
           <Dashboard data={data} />
           <MarketEventHistory history={eventHistory} data={data} />
         </Grid>

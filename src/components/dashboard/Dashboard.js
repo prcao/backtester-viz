@@ -7,7 +7,7 @@ import SummaryDash from "./SummaryDash";
 function Dashboard(props) {
 
     return (
-        <Box height="90vh" p="5%" paddingTop="2%">
+        <Box height="95vh" p="5%" paddingTop="2%">
             <SummaryDash data={props.data} />
             <Chart data={props.data} />
         </Box>

@@ -15,10 +15,12 @@ const getOrderTypeText = (orderType) => {
 
 function MarketOrder(props) {
     return (
-        <Grid templateColumns="25fr 75fr">
+        <Grid templateColumns="25fr 50fr 25fr">
             <Flex justifyContent="flex-start" alignItems="center"><b>{getOrderTypeText(props.order['orderType'])}</b></Flex>
             <Flex justifyContent="center" alignItems="center">
                 {props.order['quantity']} shares of {props.order['ticker']}
+            </Flex>
+            <Flex justifyContent="center" alignItems="center">
                 @{props.order['limitPrice']}
             </Flex>
         </Grid>

@@ -6,8 +6,7 @@ import {
     AccordionPanel,
     Box,
     Heading,
-    Divider,
-    Grid
+    Divider
 } from "@chakra-ui/core";
 import React from "react";
 import { groupBy, keyToIndexes } from "../../util/Util";
@@ -44,23 +43,19 @@ function MarketEventHistoryDayPanel(props) {
     );
 
     return (
-        <Grid templateColumns="50fr 50fr">
-            <Box>
-                <MarketEventHistorySummaryCard title="Open"
-                    data={prevData} />
-                <MarketEventHistorySummaryCard title="EOD"
-                    data={currData} />
-            </Box>
-
-            <Box borderWidth="2px" p="12px" rounded="8px" marginY="8px">
+        <Box>
+            <MarketEventHistorySummaryCard title="Open"
+                data={prevData} />
+            <Box borderWidth="2px" rounded="8px">
                 <Box p={4} paddingBottom={0}>
                     <Heading size="md">Events</Heading>
                     <Divider />
                 </Box>
                 {cards}
             </Box>
-
-        </Grid>
+            <MarketEventHistorySummaryCard title="EOD"
+                data={currData} />
+        </Box>
     );
 }
 
@@ -70,11 +65,11 @@ function MarketEventHistory(props) {
     let dateToDataMap = keyToIndexes(props.data, 'date');
 
     return (
-        <Box borderWidth="1px" borderTop="0">
-            <Box p="12px">
+        <Box borderWidth="1px" borderTop="0" height="95vh">
+            <Box p="12px" borderWidth="1px">
                 <Heading>Action History</Heading>
             </Box>
-            <Accordion overflow="scroll" overflowX="hidden" height="85vh">
+            <Accordion overflow="scroll" overflowX="hidden" height="85vh" allowToggle>
                 {Object.keys(groupedEvents).map(key => dataToAccordionItem(key, props.data, dateToDataMap, groupedEvents[key]))}
             </Accordion>
         </Box>
