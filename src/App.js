@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Grid, Box, SimpleGrid, ThemeProvider, CSSReset } from "@chakra-ui/core";
@@ -11,15 +11,14 @@ function App() {
   return (
     <ThemeProvider>
       <CSSReset />
-      <div className="App">
+      <Box height="100vh">
         <Header />
         <Grid templateColumns={"75fr 25fr"} spacing={10}>
-          <Box height="512px">
-            <Chart />
-          </Box>
+
+          <Chart />
           <MarketEventHistory />
         </Grid>
-      </div>
+      </Box>
     </ThemeProvider>
 
   );
