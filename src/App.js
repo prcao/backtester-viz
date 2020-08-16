@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import logo from './logo.svg';
+import { Box, CSSReset, Grid, ThemeProvider } from "@chakra-ui/core";
+import React from 'react';
 import './App.css';
-import { Grid, Box, SimpleGrid, ThemeProvider, CSSReset } from "@chakra-ui/core";
+import Dashboard from './components/dashboard/Dashboard';
 import Header from "./components/Header";
-import Chart from "./components/dashboard/Chart";
 import MarketEventHistory from "./components/history/MarketEventHistory";
+import { data, eventHistory } from "./data/mock-data";
 
 function App() {
 
@@ -15,8 +15,8 @@ function App() {
         <Header />
         <Grid templateColumns={"75fr 25fr"} spacing={10}>
 
-          <Chart />
-          <MarketEventHistory />
+          <Dashboard data={data} />
+          <MarketEventHistory data={eventHistory} />
         </Grid>
       </Box>
     </ThemeProvider>

@@ -8,17 +8,15 @@ import {
     Box,
     Grid,
     Text,
-    Divider,
     PseudoBox,
     Heading,
 } from "@chakra-ui/core";
-import { eventHistory } from "../../data/mock-data";
 import { groupBy } from "../../util/Util";
 
 const dataToAccordionItem = (date, data) => {
 
     let cards = data.map(event =>
-        <MarketEventHistoryCard data={event} />
+        <MarketEventHistoryCard data={event} key={date + event.eventType + event.order.orderType + event.order.quantity + event.order.ticker} />
     );
 
     return (
@@ -67,8 +65,7 @@ function MarketEventHistoryCard(props) {
 
 function MarketEventHistory(props) {
 
-    let groupedEvents = groupBy(eventHistory, 'date');
-    console.log(eventHistory)
+    let groupedEvents = groupBy(props.data, 'date');
 
     return (
         <Box borderWidth="1px" borderTop="0">
