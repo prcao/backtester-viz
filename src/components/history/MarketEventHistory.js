@@ -12,6 +12,7 @@ import React from "react";
 import { groupBy, keyToIndexes } from "../../util/Util";
 import MarketEventHistoryCard from "./MarketEventHistoryCard";
 import MarketEventHistorySummaryCard from "./MarketEventHistorySummaryCard";
+import MarketDaySummary from "./MarketDaySummary";
 
 const dataToAccordionItem = (date, data, dateToIndexMap, history) => {
 
@@ -55,6 +56,7 @@ function MarketEventHistoryDayPanel(props) {
             </Box>
             <MarketEventHistorySummaryCard title="EOD"
                 data={currData} />
+            <MarketDaySummary open={prevData} close={currData} />
         </Box>
     );
 }

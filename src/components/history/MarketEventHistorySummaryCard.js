@@ -42,7 +42,7 @@ function MarketEventHistorySummaryCard(props) {
             <SimpleGrid columns={2}>
                 {positions}
                 <Box>Cash</Box>
-                <Box>${data.cash}</Box>
+                <Box>${data.cash.toFixed(2)}</Box>
             </SimpleGrid>
             <br />
 
@@ -57,13 +57,11 @@ function MarketEventHistorySummaryCard(props) {
                 </Box>
             }
 
-
-
             <Box>
                 <Heading size="md">Total Value</Heading>
             </Box>
             <Divider />
-            <Box>${data.value}</Box>
+            <Box>${data.value.toFixed(2)}</Box>
         </Box>
     );
 }

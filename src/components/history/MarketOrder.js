@@ -21,7 +21,7 @@ function MarketOrder(props) {
                 {props.order['quantity']} shares of {props.order['ticker']}
             </Flex>
             <Flex justifyContent="center" alignItems="center">
-                @{props.order['limitPrice']}
+                @{props.order['limitPrice'].toFixed(3)}
             </Flex>
         </Grid>
     );
