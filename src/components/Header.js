@@ -1,14 +1,14 @@
 import React from 'react';
-import { Flex, Box, Grid } from "@chakra-ui/core";
+import { Flex, Box, Grid, Heading } from "@chakra-ui/core";
 
 function Header(props) {
     return (
-        <Grid templateColumns="25fr 50fr 25fr" shadow="20px" zIndex="9999" boxShadow="0 1px 5px 1px">
-            <Flex height="64px" justifyContent="center" alignItems="center">
-                Backtest
+        <Grid templateColumns="25fr 50fr 25fr" borderBottom="2px" borderColor="gray.300">
+            <Flex height="64px" padding="8px 16px">
+                <Heading>Backtest</Heading>
             </Flex>
             <Box />
-            <Flex height="64px" justifyContent="center" alignItems="center">
+            <Flex flexDirection="row" height="64px" justifyContent="flex-end" alignItems="center" padding="8px 16px">
                 Contact
             </Flex>
         </Grid>

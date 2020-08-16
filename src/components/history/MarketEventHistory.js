@@ -48,7 +48,6 @@ const getOrderTypeText = (orderType) => {
     }
 }
 
-
 function MarketEventHistoryCard(props) {
 
     let orderType = props.data['order']['orderType'];
@@ -68,13 +67,10 @@ function MarketEventHistoryCard(props) {
 function MarketEventHistory(props) {
 
     let groupedEvents = groupBy(eventHistory, 'date');
-    console.log(groupedEvents)
 
     return (
-        <Accordion borderWidth="2px" marginTop="10px">
-
+        <Accordion borderWidth="1px" borderTop="0">
             {Object.keys(groupedEvents).map(key => dataToAccordionItem(key, groupedEvents[key]))}
-
         </Accordion>
     );
 }
