@@ -26,8 +26,7 @@ function SummaryDash(props) {
                 <Heading size="md">Total Growth</Heading>
                 <Text>
                     {totalGrowth.toFixed(2)}%
-                    </Text>
-
+                </Text>
             </Box>
             <Divider orientation="vertical" />
             <Box textAlign="center">

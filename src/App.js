@@ -16,7 +16,7 @@ function App() {
         <Grid templateColumns={"75fr 25fr"} spacing={10}>
 
           <Dashboard data={data} />
-          <MarketEventHistory data={eventHistory} />
+          <MarketEventHistory history={eventHistory} data={data} />
         </Grid>
       </Box>
     </ThemeProvider>
