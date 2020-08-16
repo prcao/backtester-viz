@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import { Grid, Box, SimpleGrid, ThemeProvider, CSSReset } from "@chakra-ui/core";
 import Header from "./components/Header";
-import Chart from "./components/Chart";
+import Chart from "./components/dashboard/Chart";
 import MarketEventHistory from "./components/history/MarketEventHistory";
 
 function App() {
