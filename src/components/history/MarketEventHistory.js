@@ -10,12 +10,13 @@ import {
     Text,
     Divider,
     PseudoBox,
+    Heading,
 } from "@chakra-ui/core";
 import { eventHistory } from "../../data/mock-data";
 import { groupBy } from "../../util/Util";
 
 const dataToAccordionItem = (date, data) => {
-    
+
     let cards = data.map(event =>
         <MarketEventHistoryCard data={event} />
     );
@@ -67,11 +68,18 @@ function MarketEventHistoryCard(props) {
 function MarketEventHistory(props) {
 
     let groupedEvents = groupBy(eventHistory, 'date');
+    console.log(eventHistory)
 
     return (
-        <Accordion borderWidth="1px" borderTop="0">
-            {Object.keys(groupedEvents).map(key => dataToAccordionItem(key, groupedEvents[key]))}
-        </Accordion>
+        <Box borderWidth="1px" borderTop="0">
+            <Box p="12px">
+                <Heading>Action History</Heading>
+            </Box>
+            <Accordion overflow="scroll" overflowX="hidden" height="85vh">
+                {Object.keys(groupedEvents).map(key => dataToAccordionItem(key, groupedEvents[key]))}
+            </Accordion>
+        </Box>
+
     );
 }
 
