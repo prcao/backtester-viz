@@ -1,17 +1,15 @@
-import React from "react";
 import {
     Accordion,
-    AccordionItem,
     AccordionHeader,
-    AccordionPanel,
     AccordionIcon,
+    AccordionItem,
+    AccordionPanel,
     Box,
-    Grid,
-    Text,
-    PseudoBox,
-    Heading,
+    Heading
 } from "@chakra-ui/core";
+import React from "react";
 import { groupBy } from "../../util/Util";
+import MarketEventHistoryCard from "./MarketEventHistoryCard";
 
 const dataToAccordionItem = (date, data) => {
 
@@ -33,33 +31,6 @@ const dataToAccordionItem = (date, data) => {
                 </Box>
             </AccordionPanel>
         </AccordionItem>
-    );
-}
-
-const getOrderTypeText = (orderType) => {
-    switch (orderType) {
-        case 'BUY':
-            return <Text color="green.500">{orderType}</Text>
-        case 'SELL':
-            return <Text color="red.500">{orderType}</Text>
-        default:
-            return <Text>{orderType}</Text>
-    }
-}
-
-function MarketEventHistoryCard(props) {
-
-    let orderType = props.data['order']['orderType'];
-
-    return (
-        <PseudoBox p={4} textAlign="left" _hover={{ bg: 'gray.50', cursor: 'pointer' }}>
-            <Box><b>{props.data['eventType']}</b></Box>
-            <Grid templateColumns="25fr 50fr 25fr">
-                <Box><b>{getOrderTypeText(orderType)}</b></Box>
-                <Box>{props.data['order']['quantity']} shares of {props.data['order']['ticker']}</Box>
-                <Box>@{props.data['order']['limitPrice']}</Box>
-            </Grid>
-        </PseudoBox>
     );
 }
 
