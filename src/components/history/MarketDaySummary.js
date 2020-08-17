@@ -65,8 +65,6 @@ function MarketDaySummary(props) {
         deltaPositions[stock].delta = deltaPositions[stock].close - deltaPositions[stock].open;
     }
 
-    console.log(deltaPositions)
-
     let deltaPositionsComponents = Object.entries(deltaPositions).map(([stock, delta]) =>
         <SinglePositionSummary name={stock} openValue={delta.open} closeValue={delta.close} deltaValue={delta.delta} unitAfter=" shares" />
     );
