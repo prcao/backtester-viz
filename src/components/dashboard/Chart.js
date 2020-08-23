@@ -15,7 +15,7 @@ function Chart(props) {
                     <Tooltip />
                     <Legend />
                     <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
-                    <Area dot={false} type="monotone" dataKey="value" />
+                    <Area type="monotone" dataKey="value" activeDot={{ onClick: a => console.log(a) }} />
                     <Brush type="monotone" dataKey="date" stroke="#8884d8" />
                 </AreaChart>
             </ResponsiveContainer>

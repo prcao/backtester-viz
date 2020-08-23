@@ -49,7 +49,7 @@ function MarketEventHistoryDayPanel(props) {
                 data={prevData} />
             <Box borderWidth="2px" rounded="8px">
                 <Box p={4} paddingBottom={0}>
-                    <Heading size="md">Events</Heading>
+                    <Heading size="md">Events of {date}</Heading>
                     <Divider />
                 </Box>
                 {cards}
