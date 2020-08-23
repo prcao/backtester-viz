@@ -65,11 +65,11 @@ function MarketDaySummary(props) {
         deltaPositions[stock].delta = deltaPositions[stock].close - deltaPositions[stock].open;
     }
 
-    console.log(deltaPositions)
-
-    let deltaPositionsComponents = Object.entries(deltaPositions).map(([stock, delta]) =>
-        <SinglePositionSummary name={stock} openValue={delta.open} closeValue={delta.close} deltaValue={delta.delta} unitAfter=" shares" />
-    );
+    let deltaPositionsComponents = Object.entries(deltaPositions)
+        .filter(([stock, delta]) => delta.open != 0 || delta.close != 0)
+        .map(([stock, delta]) =>
+            <SinglePositionSummary name={stock} openValue={delta.open} closeValue={delta.close} deltaValue={delta.delta} unitAfter=" shares" />
+        );
 
     return (
         <Box borderWidth="2px" p="12px" rounded="8px" marginY="8px">

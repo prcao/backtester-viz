@@ -24,12 +24,14 @@ function MarketEventHistorySummaryCard(props) {
         </Box>
     }
 
-    let positions = Object.entries(data.positions).map(([stock, quantity]) =>
-        <React.Fragment key={stock}>
-            <Box>{stock}</Box>
-            <Box>{quantity}</Box>
-        </React.Fragment>
-    );
+    let positions = Object.entries(data.positions)
+        .filter(([stock, quantity]) => quantity != 0)
+        .map(([stock, quantity]) =>
+            <React.Fragment key={stock}>
+                <Box>{stock}</Box>
+                <Box>{quantity}</Box>
+            </React.Fragment>
+        );
 
     let orders = data.outstandingOrders.map(order => <MarketOrder order={order} />);
 
